@@ -23,6 +23,7 @@ jobs:
       run: |
         # skapar variabel
         echo "::set-env name=SHORT_SHA::$(echo ${GITHUB_SHA::7})"
+        echo "::set-env name=BRANCH::$(echo ${GITHUB_REF##*/})"
     - name: Concatenate environment varibles
       run: |
         echo "::set-env name=IMAGE_TAGS::${SHORT_SHA}"
