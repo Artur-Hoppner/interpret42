@@ -4,7 +4,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
+<<<<<<< HEAD
 RUN npm test
+=======
+>>>>>>> 8af3187dbee373719ca83fd66046a477c9dfeb9a
 RUN npm run build
 
 # production stage
