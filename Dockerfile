@@ -1,16 +1,18 @@
-# build stage
+# Build stage
 FROM node:lts-alpine as build-stage
+
+# Install app
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+COPY package-lock.json .
+RUN npm ci
+
+# Test and build app
 COPY . .
-<<<<<<< HEAD
-RUN npm test
-=======
->>>>>>> 8af3187dbee373719ca83fd66046a477c9dfeb9a
+RUN npm run test
 RUN npm run build
 
-# production stage
+# Production stage
 FROM nginx:stable-alpine as production-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 EXPOSE 80
