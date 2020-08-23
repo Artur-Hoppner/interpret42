@@ -6,6 +6,8 @@ WORKDIR /app
 COPY package*.json ./
 COPY package-lock.json .
 RUN npm ci
+# npm ci installs directly from package-lock.json the exact
+# versions wich is faster than from package*.json
 
 # Test and build app
 COPY . .
