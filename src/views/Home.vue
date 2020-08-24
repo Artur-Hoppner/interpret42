@@ -13,7 +13,8 @@ import RemoveButton from '@/components/RemoveButton/RemoveButton.vue';
 export default {
   name: 'Home',
   components: {
-    OnOff
+    OnOff,
+    RemoveButton
   }
 };
 </script>
