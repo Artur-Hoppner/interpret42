@@ -18,5 +18,13 @@ export default new Vuex.Store({
       context.commit('changeToggle');
     }
   },
+  getters: {
+    getToggle: state => {
+      return state.toggle;
+    },
+    getButtonText: state => {
+      return state.buttonText;
+    }
+  },
   modules: {}
 });

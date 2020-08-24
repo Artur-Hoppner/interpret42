@@ -1,16 +1,16 @@
 <template>
   <div class="buttonWrapper">
-    <button v-show="toggle" @click="changeThisToggle()">
-      {{ buttonText }}
+    <button v-show="getToggle" @click="changeThisToggle">
+      {{ getButtonText }}
     </button>
   </div>
 </template>
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 export default {
   name: 'OnOff',
   computed: {
-    ...mapState(['toggle', 'buttonText'])
+    ...mapGetters(['getToggle', 'getButtonText'])
   },
   methods: {
     ...mapActions(['changeThisToggle'])
