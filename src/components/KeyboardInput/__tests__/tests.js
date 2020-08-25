@@ -1,6 +1,6 @@
 import { shallowMount, mount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
-import store from '@/store/index.js';
+import store from '@/store/index';
 
 import KeyboardInput from '@/components/KeyboardInput/KeyboardInput.vue';
 
@@ -20,20 +20,18 @@ describe('User clicks input and enters a key', () => {
     const input = wrapper.find('input');
     const output = wrapper.find('p');
     const test = ['1', 'k', 'ö', 's'];
+    const keyCodes = ['49', '75', '186', '83'];
 
-    //Act
-    // for (let i = 0; i < test.length; i++) {
-    //   await input.trigger('keyup', {
-    //     key: test[i]
-    //   });
-    test.forEach(async char => {
-      await input.trigger('keyup', {
-        key: char
+    expect(input.exists()).toBe(true);
+    expect(output.exists()).toBe(true);
+
+    for (let i = 0; i < test.length; i++) {
+      await input.trigger('keydown', {
+        key: test[i],
+        keyCode: keyCodes[i]
       });
-      expect(input.element.value).toContain(char);
-    });
-
-    //Assert
+      expect(output.text()).toContain('You pressed: ' + test[i]);
+    }
     expect(output.text().length).toBeGreaterThan(0);
   });
 
@@ -41,10 +39,10 @@ describe('User clicks input and enters a key', () => {
     //Arrange
     const input = wrapper.find('input');
     const output = wrapper.find('p');
-    const test = 'Shift';
 
-    await input.trigger('keyup', {
-      key: test
+    await input.trigger('keydown', {
+      key: test,
+      keyCode: '16'
     });
 
     expect(output.text().length).toBe(0);
@@ -73,7 +71,7 @@ describe('User clicks input and enters a key', () => {
 
     const input = wrapper.find('input');
 
-    await input.trigger('keyup', {
+    await input.trigger('keydown', {
       key: 'k'
     });
 
