@@ -1,30 +1,16 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import selectbox from './modules/selectbox';
+import keyboardinput from './modules/keyboardinput';
+import buttons from './modules/buttons';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    toggle: true,
-    buttonText: 'Click me boi'
-  },
-  mutations: {
-    changeToggle(state) {
-      state.toggle = false;
-    }
-  },
-  actions: {
-    changeThisToggle(context) {
-      context.commit('changeToggle');
-    }
-  },
-  getters: {
-    getToggle: state => {
-      return state.toggle;
-    },
-    getButtonText: state => {
-      return state.buttonText;
-    }
-  },
-  modules: {}
+  modules: {
+    moduleA: selectbox,
+    keyboardinput,
+    buttons
+  }
+  // strict: process.env.NODE_ENV !== 'production'
 });

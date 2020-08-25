@@ -29,12 +29,13 @@ const getters = {
 const store = new Vuex.Store({ state, actions, getters });
 
 describe('User clicks button', () => {
-  test('Button should show when rendered', async () => {
-    const wrapper = shallowMount(OnOff, {
-      store,
-      localVue
-    });
+  //mount the component with our store and the local vue instance
+  const wrapper = shallowMount(OnOff, {
+    store,
+    localVue
+  });
 
+  test('Button should show when rendered', async () => {
     const button = wrapper.find('button');
     //check if button is visible
     expect(button.element.style.display).toContain('');
@@ -42,11 +43,6 @@ describe('User clicks button', () => {
 
   test('Button goes invisible when clicked', async () => {
     //Arrange
-    //mount the component with our store and the local vue instance
-    const wrapper = shallowMount(OnOff, {
-      store,
-      localVue
-    });
     const button = wrapper.find('button');
 
     //Act
