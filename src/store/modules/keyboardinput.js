@@ -1,6 +1,6 @@
 export default {
   state: {
-    outputText: 'You pressed: '
+    outputText: ''
   },
   mutations: {
     handleKey(state, keyEvent) {
@@ -20,6 +20,8 @@ export default {
   },
   actions: {
     handleThisKey(context, keyEvent) {
+      console.log(keyEvent.key);
+      console.log(keyEvent.keyCode);
       context.commit('handleKey', keyEvent);
     }
   },

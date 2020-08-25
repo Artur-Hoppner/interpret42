@@ -1,6 +1,6 @@
 <template>
   <div class="buttonWrapper">
-    <input type="text" @keyup="handleThisKey" />
+    <input type="text" @keydown="handleThisKey" />
     <p id="textOutput">{{ getOutputText }}</p>
   </div>
 </template>
