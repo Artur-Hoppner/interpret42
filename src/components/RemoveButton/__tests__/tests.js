@@ -1,6 +1,5 @@
 import { shallowMount, mount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
-// import store from '@/store/index.js';
 
 import RemoveButton from '@/components/RemoveButton/RemoveButton.vue';
 
@@ -29,12 +28,14 @@ const getters = {
 const store = new Vuex.Store({ state, actions, getters });
 
 describe('User clicks button', () => {
+  //mount the component with our store and the local vue instance
+  const wrapper = shallowMount(RemoveButton, {
+    store,
+    localVue
+  });
+
   test('Check so button exists on rendering', async () => {
-    //mount the component with our store and the local vue instance
-    const wrapper = shallowMount(RemoveButton, {
-      store,
-      localVue
-    });
+    // //mount the component with our store and the local vue instance
     const button = wrapper.find('button');
     //check if button is visible
     expect(button.exists()).toBe(true);
@@ -42,11 +43,6 @@ describe('User clicks button', () => {
 
   test('Button gets destroyed when clicked', async () => {
     //Arrange
-    //mount the component with our store and the local vue instance
-    const wrapper = shallowMount(RemoveButton, {
-      store,
-      localVue
-    });
     const button = wrapper.find('button');
 
     //Act
