@@ -10,20 +10,16 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 
 describe('User clicks input and enters a key', () => {
-  const wrapper = shallowMount(KeyboardInput, {
-    store,
-    localVue
-  });
-
   test('check so that output only displays letters & numbers', async () => {
     //Arrange
+    const wrapper = shallowMount(KeyboardInput, {
+      store,
+      localVue
+    });
     const input = wrapper.find('input');
     const output = wrapper.find('p');
     const test = ['1', 'k', 'ö', 's'];
     const keyCodes = ['49', '75', '186', '83'];
-
-    expect(input.exists()).toBe(true);
-    expect(output.exists()).toBe(true);
 
     for (let i = 0; i < test.length; i++) {
       await input.trigger('keydown', {
@@ -32,11 +28,17 @@ describe('User clicks input and enters a key', () => {
       });
       expect(output.text()).toContain('You pressed: ' + test[i]);
     }
+
+    //Assert
     expect(output.text().length).toBeGreaterThan(0);
   });
 
   test('check so input key Shift doesnt work', async () => {
     //Arrange
+    const wrapper = shallowMount(KeyboardInput, {
+      store,
+      localVue
+    });
     const input = wrapper.find('input');
     const output = wrapper.find('p');
 

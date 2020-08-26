@@ -9,39 +9,47 @@ const localVue = createLocalVue();
 //make our instance use vuex
 localVue.use(Vuex);
 
-//create replica of actual store
-const actions = {
-  //add spy to changeThisToggle
-  changeThisToggle: jest.fn()
-};
-const state = {
-  toggle: true,
-  buttonText: 'Click me boi'
-};
-const getters = {
-  getToggle: state => {
-    return state.toggle;
-  },
-  getButtonText: state => {
-    return state.buttonText;
-  }
-};
-const store = new Vuex.Store({ state, actions, getters });
-
 describe('User clicks button', () => {
-  //mount the component with our store and the local vue instance
-  const wrapper = shallowMount(OnOff, {
-    store,
-    localVue
+  let actions, state, getters, store;
+
+  beforeEach(() => {
+    //create replica of actual store
+    actions = {
+      //add spy to changeThisToggle
+      changeThisToggle: jest.fn()
+    };
+    state = {
+      toggle: true,
+      buttonText: 'Click me boi'
+    };
+    getters = {
+      getToggle: state => {
+        return state.toggle;
+      },
+      getButtonText: state => {
+        return state.buttonText;
+      }
+    };
+    store = new Vuex.Store({ state, actions, getters });
   });
 
   test('Button should show when rendered', async () => {
+    //mount the component with our store and the local vue instance
+    const wrapper = shallowMount(OnOff, {
+      store,
+      localVue
+    });
     const button = wrapper.find('button');
     //check if button is visible
     expect(button.element.style.display).toContain('');
   });
 
   test('Button goes invisible when clicked', async () => {
+    //mount the component with our store and the local vue instance
+    const wrapper = shallowMount(OnOff, {
+      store,
+      localVue
+    });
     //Arrange
     const button = wrapper.find('button');
 
