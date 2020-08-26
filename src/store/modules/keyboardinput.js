@@ -5,10 +5,10 @@ export default {
   mutations: {
     handleKey(state, keyEvent) {
       const charCode = keyEvent.keyCode;
-      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      if (charCode > 32 && (charCode < 48 || charCode > 57)) {
         state.outputText = 'You pressed: ' + keyEvent.key;
       } else if (
-        charCode > 31 &&
+        charCode > 32 &&
         (charCode < 65 || charCode > 90) &&
         (charCode < 97 || charCode > 122)
       ) {

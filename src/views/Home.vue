@@ -7,6 +7,8 @@
     <KeyboardInput />
     <br />
     <SelectBox />
+    <br />
+    <TextField />
   </div>
 </template>
 
@@ -16,6 +18,7 @@ import OnOff from '@/components/OnOff/OnOff.vue';
 import RemoveButton from '@/components/RemoveButton/RemoveButton.vue';
 import KeyboardInput from '@/components/KeyboardInput/KeyboardInput.vue';
 import SelectBox from '@/components/SelectBox/SelectBox.vue';
+import TextField from '@/components/TextField/TextField.vue';
 
 export default {
   name: 'Home',
@@ -23,7 +26,8 @@ export default {
     OnOff,
     RemoveButton,
     KeyboardInput,
-    SelectBox
+    SelectBox,
+    TextField
   }
 };
 </script>
