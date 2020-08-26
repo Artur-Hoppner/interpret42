@@ -4,6 +4,7 @@ import selectbox from './modules/selectbox';
 import keyboardinput from './modules/keyboardinput';
 import buttons from './modules/buttons';
 import textfield from './modules/textfield';
+import searchtext from './modules/searchtext';
 
 Vue.use(Vuex);
 
@@ -12,7 +13,8 @@ export default new Vuex.Store({
     selectbox,
     keyboardinput,
     buttons,
-    textfield
+    textfield,
+    searchtext
   }
   // strict: process.env.NODE_ENV !== 'production'
 });
