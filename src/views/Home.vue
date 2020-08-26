@@ -9,6 +9,8 @@
     <SelectBox />
     <br />
     <TextField />
+    <br />
+    <SearchText />
   </div>
 </template>
 
@@ -19,6 +21,7 @@ import RemoveButton from '@/components/RemoveButton/RemoveButton.vue';
 import KeyboardInput from '@/components/KeyboardInput/KeyboardInput.vue';
 import SelectBox from '@/components/SelectBox/SelectBox.vue';
 import TextField from '@/components/TextField/TextField.vue';
+import SearchText from '@/components/SearchText/SearchText.vue';
 
 export default {
   name: 'Home',
@@ -27,7 +30,8 @@ export default {
     RemoveButton,
     KeyboardInput,
     SelectBox,
-    TextField
+    TextField,
+    SearchText
   }
 };
 </script>
