@@ -38,9 +38,8 @@ export default {
   //testa det ^ på sista linjen, tror inte vi ska ha return utan använda getter på newArray för att vi måste loopa med v-for
   actions: {
     getByThisKeyword(context, keyWord) {
-      let search = keyWord.srcElement.value;
-      console.log(search);
-      context.commit('getByKeyword', search);
+      console.log(keyWord);
+      context.commit('getByKeyword', keyWord);
     }
   },
 
