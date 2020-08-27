@@ -13,14 +13,19 @@ describe('User types in a searchword', () => {
     const wrapper = shallowMount(SearchText, { store, localVue });
     expect(wrapper.element).toMatchSnapshot();
   });
+
   test('check so that an empty string searchword returns all items in the array', async () => {
     const wrapper = shallowMount(SearchText, { store, localVue });
     const input = wrapper.find('input');
-    await input.trigger('keyup', '');
-    await wrapper.vm.$nextTick();
-    //testa npm test så får vi se bara :D
-    // expect(action.getByThisKeyword).toHaveBeenCalled();
-    expect(wrapper.find('li').Array.length).toBeGreaterThan(0);
+    await input.setValue('gold');
+    await input.trigger('change');
+    // Not triggering functions and returning array to list
+
+    // await wrapper.vm.$nextTick();
+    let test = await wrapper.findAll('li').length;
+    console.log(await wrapper.findAll('li').length, 'counting number of li');
+
+    expect(test).toBeGreaterThan(0);
   });
 
   // hittar Li elementet array.length toBeGreaterThan(0)
