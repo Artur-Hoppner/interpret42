@@ -67,3 +67,7 @@ describe('User clicks button', () => {
     expect(wrapper.find('button').element.style.display).toContain('none');
   });
 });
+
+/* ÖVNING 1a
+1a Skapa en komponent med ett button-element och ett annat synligt element. Button ska ha texten: "Visa/dölj alternativ". När man klickar på knappen ska elementet växla mellan att vara synligt och osynligt. Tips: v-show.
+*/

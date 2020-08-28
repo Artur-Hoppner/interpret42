@@ -54,3 +54,16 @@ describe('User types in a searchword', () => {
   });
 });
 // wrapper.array.length
+
+/* ÖVNaING 5
+5a Skapa en komponent för sökning/filtrering. Komponenten ska innehålla ett textfält och visa en lista med alla element som matchar texten i textfältet. Den ska uppdateras varje gång användaren trycker ner ett tecken. (använd key events) Använd en lista med namn på djur: [cat, dog, parrot, goldfish, horse, elephant, ant, snake, crow, cow, eagle, rhinoceros, chimpanzee]. Använd följande testfall:
+tom sträng matchar alla element
+"d" matchar "dog" och "goldfish"
+"ow" matchar "crow" och "cow"
+"AnT" matchar "ant" och "elephant"
+
+5b Gör så att listan skickas till komponenten från parent, som en property. Testa så att komponenten fungerar korrekt för en tom lista samt att den fungerar korrekt med listan från uppgift 5a.
+
+5c Testa så att komponenten fungerar korrekt för en lista som innehåller andra saker än djur. Hitta på egna lämpliga testfall.
+
+*/

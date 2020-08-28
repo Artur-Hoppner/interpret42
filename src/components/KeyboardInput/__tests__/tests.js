@@ -80,3 +80,10 @@ describe('User clicks input and enters a key', () => {
     expect(actions.handleThisKey).toHaveBeenCalled();
   });
 });
+
+/* ÖVNING
+2a Skapa en komponent med ett textfält, som lyssnar på tangenthändelser. (keyEvent) Om användaren trycker ner en bokstav eller en siffra så ska komponenten visa ett meddelande: "You pressed key" där key är tecknet man tryckte.
+
+2b Om man trycker på en annan tangent, till exempel mellanslag eller enter, så ska meddelandet rensas.
+
+*/

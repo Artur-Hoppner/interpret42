@@ -91,3 +91,13 @@ describe('User types into the textfield', () => {
     expect(actions.checkThisLimitText).toHaveBeenCalled();
   });
 });
+
+/* ÖVNING 4
+4a Skapa en komponent med ett textfält. Textfältet har en begränsning på 40 tecken. 
+När användaren skriver i fältet, eller klistrar in text, ska komponenten visa ett 
+meddelande med hur många tecken man har kvar. (Komponenten behöver inte göra något 
+om man överskrider gränsen.) Tips: använd await wrapper.setValue(x) för att testa 
+att användaren ändrar värdet.
+
+4b* Om användaren försöker skriva fler än 40 tecken, ska bara de första 40 behållas.
+*/

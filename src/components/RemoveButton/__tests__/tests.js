@@ -68,3 +68,7 @@ describe('User clicks button', () => {
     expect(wrapper.find('button').exists()).toBe(false);
   });
 });
+
+/* ÖVNING 1b
+1b Skapa en komponent som gör samma sak, men tar bort elementet i stället för att göra det osynligt. Tips: v-if.
+*/

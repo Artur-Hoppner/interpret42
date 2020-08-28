@@ -35,3 +35,10 @@ describe('User clicks checkbox', () => {
     expect(text.text()).not.toContain('Delivery within 5 days');
   });
 });
+
+/* ÖVNING 3
+3 Skapa en komponent med en kryssruta. Komponenten ska initialt visa 
+texten "Leverans om 5 dagar". När man kryssar i rutan ska texten ändras 
+till "Valde express, leverans om 3 dagar". Använd en change event i 
+stället för click event.
+*/
