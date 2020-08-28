@@ -22,9 +22,9 @@ describe('User types in a searchword', () => {
     input.setValue('');
     await input.trigger('keyup');
     const lengthOfLi = wrapper.findAll('li').length; // Remove and add in expect()?
-    console.log(await wrapper.findAll('li').length, 'counting numbers of li'); // can remove
     //Assert
     expect(lengthOfLi).toBeGreaterThan(0);
+    expect(lengthOfLi).toBe(13);
   });
 
   test('check so that searchword returns item with matching letters', async () => {
@@ -49,8 +49,28 @@ describe('User types in a searchword', () => {
     expect(wrapper.text()).toBe('goldfish');
   });
 
-  test('check so that action in vuex is called on keydown', async () => {
-    //write code for mocked store here
+  test('check so that action in vuex is called on keyup', async () => {
+    // Arrange
+    const actions = {
+      getByThisKeyword: jest.fn()
+    };
+
+    const store = new Vuex.Store({ actions });
+    const wrapper = shallowMount(SearchText, {
+      store,
+      localVue,
+      computed: {
+        filteredByKeyword: state => {
+          return state.newArray;
+        }
+      }
+    });
+
+    // Act
+    const input = wrapper.find('input');
+    await input.trigger('keyup');
+    // Assert
+    expect(actions.getByThisKeyword).toHaveBeenCalled();
   });
 });
 // wrapper.array.length
