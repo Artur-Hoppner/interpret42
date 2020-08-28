@@ -15,22 +15,22 @@ describe('User types in a searchword', () => {
   });
 
   test('check so that an empty string searchword returns all items in the array', async () => {
-    const wrapper = shallowMount(SearchText, { store, localVue });
+    // Arrange
+    const wrapper = shallowMount(SearchText, { store });
     const input = wrapper.find('input');
-    await input.setValue('gold');
-    await input.trigger('change');
-    // Not triggering functions and returning array to list
-
-    // await wrapper.vm.$nextTick();
-    let test = await wrapper.findAll('li').length;
-    console.log(await wrapper.findAll('li').length, 'counting number of li');
-
-    expect(test).toBeGreaterThan(0);
+    // Act
+    input.setValue('');
+    await input.trigger('keyup');
+    let liLength = await wrapper.findAll('li').length;
+    console.log(await wrapper.findAll('li').length, 'counting numbers of li');
+    //Assert
+    expect(liLength).toBeGreaterThan(0);
   });
 
-  // hittar Li elementet array.length toBeGreaterThan(0)
-
-  test('check so that searchword returns item with matching letters', () => {});
+  test('check so that searchword returns item with matching letters', () => {
+    // Arrange
+    // const wrapper = shallowMount(SearchText, {store, localVue})
+  });
 
   test('check so that searchword with capital letters becomes lowercase', async () => {});
 
