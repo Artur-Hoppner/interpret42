@@ -15,24 +15,39 @@ describe('User types in a searchword', () => {
   });
 
   test('check so that an empty string searchword returns all items in the array', async () => {
-    // Arrange
-    const wrapper = shallowMount(SearchText, { store });
+    //Arrange localVue in shallowmount is not needed to pass test. (Best practice to add it to not polute router?)
+    const wrapper = shallowMount(SearchText, { store, localVue });
     const input = wrapper.find('input');
-    // Act
+    //Act
     input.setValue('');
     await input.trigger('keyup');
-    let liLength = await wrapper.findAll('li').length;
-    console.log(await wrapper.findAll('li').length, 'counting numbers of li');
+    const lengthOfLi = wrapper.findAll('li').length; // Remove and add in expect()?
+    console.log(await wrapper.findAll('li').length, 'counting numbers of li'); // can remove
     //Assert
-    expect(liLength).toBeGreaterThan(0);
+    expect(lengthOfLi).toBeGreaterThan(0);
   });
 
-  test('check so that searchword returns item with matching letters', () => {
-    // Arrange
-    // const wrapper = shallowMount(SearchText, {store, localVue})
+  test('check so that searchword returns item with matching letters', async () => {
+    //Arrange
+    const wrapper = shallowMount(SearchText, { store, localVue });
+    const input = wrapper.find('input');
+    //Act
+    input.setValue('goldfish');
+    await input.trigger('keyup');
+    //Assert
+    expect(wrapper.text()).toBe('goldfish');
   });
 
-  test('check so that searchword with capital letters becomes lowercase', async () => {});
+  test('check so that searchword with capital letters becomes lowercase', async () => {
+    //Arrange
+    const wrapper = shallowMount(SearchText, { store, localVue });
+    const input = wrapper.find('input');
+    //Act
+    input.setValue('GOLDFISH');
+    await input.trigger('keyup');
+    //Assert
+    expect(wrapper.text()).toBe('goldfish');
+  });
 
   test('check so that action in vuex is called on keydown', async () => {
     //write code for mocked store here
